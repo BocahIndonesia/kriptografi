@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+    <script defer src="rc4.js"></script>
+    <title>Steganografi RC4</title>
+</head>
+<body>
+    <div id="section">
+        <ul class="navbar">
+            <li class="enc-nav">Encode</li>
+            <li class="dec-nav">Decode</li>
+        </ul>
+        <div class="content">
+            <div class="enc active">
+                <div class="info">
+                    <span>Steganografi ini menyisipkan pesan dalam bentuk enkripsi menggunakan algoritma RC4, sehingga dalam memerlukan key untuk menyisipkan dan mengambil pesan dari media cover.</span>
+                    <br>
+                    <span>Masukkan pesan dan key, kemudian pilih foto yang akan disisipkan pesan rahasia, setelah itu download foto yang sudah disisipi pesan.</span>
+                </div>
+                <form>
+                    <div>
+                        <textarea name="pesan" placeholder="Pesan rahasia"></textarea>
+                    </div>
+                    <div>
+                        <input type="text" name="key" placeholder=" ">
+                        <span>Key rahasia</span>
+                    </div>
+                    <div>
+                        <h5>Pilih foto</h4>
+                        <input type="file" name="gambar">
+                    </div>
+                </form>
+                <div class="panel">
+                    <div>
+                        <h2>Pesan dalam bentuk biner</h2>
+                        <textarea></textarea>
+                    </div>
+                    <div>
+                        <h2>Foto original</h2>
+                        <img class="original">
+                        <canvas class="hidden-original"></canvas>
+                    </div>
+                    <div>
+                        <h2>Foto dengan pesan</h2>
+                        <img class="transformed">
+                        <canvas class="hidden-transformed"></canvas>
+                        <a id="download" style="display:none" download></a>
+                        <span id="gambar-download">Download</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dec">
+                <div class="info">
+                    <span>Steganografi ini menyisipkan pesan dalam bentuk enkripsi menggunakan algoritma RC4, sehingga dalam memerlukan key untuk menyisipkan dan mengambil pesan dari media cover.</span>
+                    <br>
+                    <span>Masukkan key yang dipakai dalam mengenkripsi pesan dan pilih gambar yang sudah disisipi pesan.</span>
+                </div>
+                <form>
+                    <div>
+                        <input name="valid-key" type="text" placeholder=" ">
+                        <span>Key rahasia</span>
+                    </div>
+                    <div>
+                        <h5>Pilih foto yang telah disisipi pesan</h5>
+                        <input name="gambar-pesan" type="file">
+                    </div>
+                </form>
+                <div class="panel">
+                    <div>
+                        <h2>Foto yang dipilih</h2>
+                        <img class="gambar-selected">
+                        <canvas class="hidden-selected"></canvas>
+                    </div>
+                    <div>
+                        <h2>Pesan rahasia</h2>
+                        <textarea></textarea>
+                    </div>
+                </div class="panel">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

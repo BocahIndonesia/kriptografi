@@ -1,0 +1,161 @@
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#section{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 5px;
+}
+.navbar{
+    min-height: 100vh;
+    grid-column: 1/2;
+    padding: 10px;
+    list-style: none;
+}
+.navbar>li{
+    cursor: pointer;
+    color: #fff;
+    background-color: dodgerblue;
+    margin: 10px 0;
+    border-radius: 3px;
+    padding: 5px;
+    transition: .5s;
+}
+.navbar>li:hover{
+    transform: translateX(10%);
+}
+.content{
+    position: relative;
+    grid-column: 2/13;
+}
+.content>.enc,
+.content>.dec{
+    width: 100%;
+    position: absolute;
+    display: none;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.content>.enc.active,
+.content>.dec.active{
+    display: initial;
+}
+.content>.enc>.info,
+.content>.dec>.info{background: rgb(108,241,112);
+    background: linear-gradient(90deg, rgba(108,241,112,0.969625350140056) 0%, rgba(181,246,169,1) 54%, rgba(252,252,252,1) 100%);
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.content>.enc>form,
+.content>.enc>.panel,
+.content>.dec>form,
+.content>.dec>.panel{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.content>.enc>form,
+.content>.dec>form{
+    height: 50vh;
+}
+.content>.enc>form>div,
+.content>.dec>form>div{
+    position: relative;
+}
+.content>.enc>form>div>span,
+.content>.dec>form>div>span{
+    left: 0;
+    bottom: 15%;
+    position: absolute;
+}
+.content>.enc>form>div>textarea,
+.content>.enc>form>div>span,
+.content>.enc>form>div>input,
+.content>.dec>form>div>span,
+.content>.dec>form>div>input{
+    font-size: 15px;
+}
+.content>.enc>form>div>textarea,
+.content>.enc>form>div:not(:last-child)>input,
+.content>.dec>form>div:not(:last-child)>input{
+    width: 50%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding: 5px;
+}
+.content>.enc>form>div:not(:last-child)>span,
+.content>.dec>form>div:not(:last-child)>span{
+    pointer-events: none;
+    position: absolute;
+    margin-left: 5px;
+    transition: .5s;
+}
+.content>.enc>form>div:not(:last-child)>input:focus+span,
+.content>.enc>form>div:not(:last-child)>input:not(:placeholder-shown)+span,
+.content>.dec>form>div:not(:last-child)>input:focus+span,
+.content>.dec>form>div:not(:last-child)>input:not(:placeholder-shown)+span{
+    font-weight: bold;
+    transform: translateY(-20px);
+}
+.content>.enc>form>div:not(:last-child)>input:focus+span::after,
+.content>.enc>form>div:not(:last-child)>input:not(:placeholder-shown)+span::after,
+.content>.dec>form>div:not(:last-child)>input:focus+span::after,
+.content>.dec>form>div:not(:last-child)>input:not(:placeholder-shown)+span::after{
+    content: ":";
+}
+.content>.enc>.panel,
+.content>.dec>.panel{
+    color: #fff;
+}
+.content>.enc>.panel>div,
+.content>.dec>.panel>div{
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: rgba(125, 125, 125);
+}
+.content>.enc>.panel>div>h2,
+.content>.dec>.panel>div>h2{
+    margin-bottom: 10px;
+}
+.content>.enc>.panel>div>textarea,
+.content>.dec>.panel>div>textarea{  
+    font-size: 15px;
+    color: #fff;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+.content>.enc>.panel>div>img,
+.content>.dec>.panel>div>img{
+    width: 100%;
+    background-color: #000;
+}
+.content>.enc>.panel>div>canvas,
+.content>.dec>.panel>div>canvas{
+    display: none;
+    background-color: #fff;
+}
+#gambar-download{
+    display: inline-block;
+    background-color: dodgerblue;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.content>.dec>form{
+    width: 100%;
+}
